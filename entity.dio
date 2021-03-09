@@ -1,0 +1,24 @@
+<mxfile host="65bd71144e" modified="2021-03-09T02:58:26.930Z" agent="5.0 (Macintosh; Intel Mac OS X 11_0_0) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.54.1 Chrome/87.0.4280.141 Electron/11.3.0 Safari/537.36" version="14.2.4" etag="sKS5L20xATL7lYQxRsDZ" type="embed">
+    <diagram id="smp-2DyD0nm3UydYhYE9" name="ページ1">
+        <mxGraphModel dx="483" dy="830" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="Entity(ユーザー情報) " style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="100" y="100" width="150" height="400" as="geometry">
+                        <mxRectangle x="100" y="100" width="70" height="30" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="3" value="・ニックネーム&#10;・メールアドレス&#10;・パスワード&#10;・パスワード確認&#10;・姓(生年月日)&#10;・名(全角)&#10;・姓(カナ)&#10;・名(カナ)&#10;・誕生日&#10;&#10;&#10;・カード情報&#10;・有効期限&#10;・セキュリティコード・郵便番号&#10;・住所&#10;・県&#10;・町市村&#10;・番地&#10;・建物名&#10;・電話番号&#10;・カード情報&#10;・有効期限&#10;・セキュリティコード" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="2">
+                    <mxGeometry y="30" width="150" height="370" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="Entity(商品情報)" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="350" y="101" width="140" height="400" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="・商品名&#10;・商品画像&#10;・商品価格&#10;・説明&#10;・出品者&#10;・カテゴリー&#10;・商品の状態&#10;・配送料の負担&#10;・発送元の地域&#10;・発送日の目安&#10;・お気に入り&#10;・不適切な商品の通報" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="10">
+                    <mxGeometry y="30" width="140" height="370" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
