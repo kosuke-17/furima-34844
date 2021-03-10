@@ -70,6 +70,48 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include("Password is too short (minimum is 6 characters)")
       end
+      it 'family_nameは全角（漢字・ひらがな・カタカナ）でなければ登録できない' do
+        @user.family_name = 'yamada'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Family name 全角文字を使用してください")
+      end
+      it 'first_nameは全角（漢字・ひらがな・カタカナ）でなければ登録できない' do
+        @user.first_name = 'taro'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("First name 全角文字を使用してください")
+      end
+      it 'family_name_kanaは全角（カタカナ）でなければ登録できない' do
+        @user.family_name_kana = 'やまだ'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Family name kana 全角文字を使用してください")
+      end
+      it 'first_name_kanaは全角（カタカナ）でなければ登録できない' do
+        @user.first_name_kana = 'たろう'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("First name kana 全角文字を使用してください")
+      end
+      it 'passwordが半角数字のみの場合は登録できない' do
+        @user.password = '111111'
+        @user.password_confirmation = '111111'
+        expect(@user.errors.full_messages).to include()
+      end
+      it 'passwordが半角英字のみの場合は登録できない' do
+        @user.password = 'aaaaaa'
+        @user.password_confirmation = 'aaaaaa'
+        binding.pry
+        expect(@user.errors.full_messages).to include()
+      end
+      it 'passwordが全角の場合は登録できない' do
+        @user.password = 'てすとてすと'
+        @user.password_confirmation = 'てすとてすと'
+        
+        expect(@user.errors.full_messages).to include()
+      end
+      it 'emailは@が含まれていないと登録ができない' do
+        @user.email = 'samplesample.com'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Email is invalid")
+      end
     end
   end
 end
