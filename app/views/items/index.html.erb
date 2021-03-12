@@ -132,11 +132,11 @@
         <div class='item-img-content' >
           <%= link_to image_tag(item.image, class: "item-img"), item_path(item.id), method: :get %>
 
-          <% if item.blank? %>
-          <div class='sold-out'>
+          <%# if item.blank? %>
+        <%# <div class='sold-out'>
             <span>Sold Out!!</span>
-          </div>
-          <% end %>
+          </div> %>
+          <%# end %>
 
         </div>
         <div class='item-info'>
