@@ -3,9 +3,10 @@ require 'rails_helper'
 RSpec.describe PurchaseDestination, type: :model do
   describe '購入履歴の保存' do
       before do
-      user_id = 1
-      item_id = 2
-        @purchase_destination = FactoryBot.build(:purchase_destination, user_id: user_id, item_id: item_id)
+        @seller = FactoryBot.create(:user)
+        @item   = FactoryBot.create(:item)
+
+        @purchase_destination = FactoryBot.build(:purchase_destination, user_id: @seller.id, item_id: @item.id )
       end
     context '購入履歴を保存できる場合' do
       it 'すべての値が正しく入力されていれば保存できること' do
@@ -13,7 +14,7 @@ RSpec.describe PurchaseDestination, type: :model do
       end
       it 'building_nameは空でも保存できること' do
         @purchase_destination.building_name = ''
-      expect(@purchase_destination).to be_valid
+        expect(@purchase_destination).to be_valid
       end
     end
     context '購入履歴を保存できない場合' do
