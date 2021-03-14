@@ -132,11 +132,11 @@
         <div class='item-img-content' >
           <%= link_to image_tag(item.image, class: "item-img"), item_path(item.id), method: :get %>
 
-          <%# if item.blank? %>
-        <%# <div class='sold-out'>
-            <span>Sold Out!!</span>
-          </div> %>
-          <%# end %>
+          <% if item.purchase.present? %>
+          <div class='sold-out'>
+          <span>Sold Out!!</span>
+          </div> 
+          <% end %>
 
         </div>
         <div class='item-info'>
@@ -155,8 +155,8 @@
       </li>
       <% end %>
 
-      <% if @items.blank? %>
-      <li class='list'>
+      <% if @items.nil?  %>
+     <li class='list'>
         <%= link_to '#' do %>
         <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img" %>
         <div class='item-info'>
@@ -172,7 +172,7 @@
           </div>
         </div>
         <% end %>
-      </li>
+      </li> 
       <% end %>
     </ul>
   </div>
