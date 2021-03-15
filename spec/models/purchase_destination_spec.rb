@@ -5,8 +5,9 @@ RSpec.describe PurchaseDestination, type: :model do
       before do
         @seller = FactoryBot.create(:user)
         @item   = FactoryBot.create(:item)
-
         @purchase_destination = FactoryBot.build(:purchase_destination, user_id: @seller.id, item_id: @item.id )
+        sleep 0.1
+
       end
     context '購入履歴を保存できる場合' do
       it 'すべての値が正しく入力されていれば保存できること' do
@@ -70,6 +71,11 @@ RSpec.describe PurchaseDestination, type: :model do
       end
       it 'phone_numberは数字でないと登録できない' do
         @purchase_destination.phone_number = '0000000000a'
+        @purchase_destination.valid?
+        expect(@purchase_destination.errors.full_messages).to include("Phone number Input only number")
+      end
+      it '電話番号が1２桁以上だと登録できない' do
+        @purchase_destination.phone_number = 123412341234
         @purchase_destination.valid?
         expect(@purchase_destination.errors.full_messages).to include("Phone number Input only number")
       end
