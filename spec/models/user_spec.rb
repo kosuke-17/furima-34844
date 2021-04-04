@@ -11,8 +11,8 @@ RSpec.describe User, type: :model do
         expect(@user).to be_valid 
       end
       it 'passwordとpassword_confirmationが6文字以上であれば登録できる' do
-        @user.password = '000000'
-        @user.password_confirmation = '000000'
+        @user.password = '000aaa'
+        @user.password_confirmation = '000aaa'
         expect(@user).to be_valid
       end
     end
@@ -83,27 +83,29 @@ RSpec.describe User, type: :model do
       it 'family_name_kanaは全角（カタカナ）でなければ登録できない' do
         @user.family_name_kana = 'やまだ'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Family name kana 全角文字を使用してください")
+        expect(@user.errors.full_messages).to include("Family name kana 全角カナ文字を使用してください")
       end
       it 'first_name_kanaは全角（カタカナ）でなければ登録できない' do
         @user.first_name_kana = 'たろう'
         @user.valid?
-        expect(@user.errors.full_messages).to include("First name kana 全角文字を使用してください")
+        expect(@user.errors.full_messages).to include("First name kana 全角カナ文字を使用してください")
       end
       it 'passwordが半角数字のみの場合は登録できない' do
         @user.password = '111111'
         @user.password_confirmation = '111111'
+        @user.valid?
         expect(@user.errors.full_messages).to include("Password 半角英数字混在で入力してください")
       end
       it 'passwordが半角英字のみの場合は登録できない' do
         @user.password = 'aaaaaa'
         @user.password_confirmation = 'aaaaaa'
-        binding.pry
+        @user.valid?
         expect(@user.errors.full_messages).to include("Password 半角英数字混在で入力してください")
       end
       it 'passwordが全角の場合は登録できない' do
         @user.password = 'てすとてすと'
         @user.password_confirmation = 'てすとてすと'
+        @user.valid?
         expect(@user.errors.full_messages).to include("Password 半角英数字混在で入力してください")
       end
       it 'emailは@が含まれていないと登録ができない' do

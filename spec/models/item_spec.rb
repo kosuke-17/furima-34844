@@ -42,10 +42,11 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Cost is not a number")
       end
-      it 'prefecture_idが空では保存できないこと' do
-        @item.prefecture_id = nil
-        @item.valid?
-        expect(@item.errors.full_messages).to include("Prefecture is not a number")
+      #空ではなく1の場合を考える
+      #it 'prefecture_idが空では保存できないこと' do
+      #  @item.prefecture_id = nil
+      #  @item.valid?
+      #  expect(@item.errors.full_messages).to include("Prefecture is not a number")
       end
       it 'delivery_idが空では保存できないこと' do
         @item.delivery_id = nil

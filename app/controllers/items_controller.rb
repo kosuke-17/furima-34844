@@ -38,7 +38,7 @@ class ItemsController < ApplicationController
 
   def show
   end
-  
+
 
 private
 
@@ -49,6 +49,7 @@ private
   def set_item
     @item = Item.find(params[:id])
   end
+
 
   def move_to_index
     if current_user.id != @item.user_id || @item.purchase.present?
